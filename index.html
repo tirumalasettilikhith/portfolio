@@ -1,0 +1,2322 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Likhith Tirumalasetti — Computer Science student, Full-Stack Developer and AI Enthusiast.">
+
+  <meta name="theme-color" content="#070b16">
+
+  <title>Likhith Tirumalasetti | Full-Stack Developer</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #070b16;
+      color: #f5f7ff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.light {
+      background: #f5f7fb;
+      color: #101522;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    :root {
+      --bg: #070b16;
+      --bg2: #0b1120;
+      --card: rgba(17, 25, 43, 0.72);
+      --card-solid: #10182a;
+      --text: #f5f7ff;
+      --muted: #9ca9bf;
+      --border: rgba(255,255,255,0.09);
+
+      --primary: #7c5cff;
+      --secondary: #20d9c7;
+      --blue: #4ca8ff;
+
+      --gradient:
+        linear-gradient(
+          120deg,
+          #7c5cff,
+          #20d9c7,
+          #4ca8ff
+        );
+    }
+
+    body.light {
+      --bg: #f5f7fb;
+      --bg2: #ffffff;
+      --card: rgba(255,255,255,0.82);
+      --card-solid: #ffffff;
+      --text: #101522;
+      --muted: #5f6b7d;
+      --border: rgba(15,23,42,0.1);
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+
+    /* =========================================================
+       BACKGROUND
+    ========================================================= */
+
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: .22;
+    }
+
+    .orb.one {
+      width: 400px;
+      height: 400px;
+      background: #7c5cff;
+      top: -150px;
+      left: -120px;
+    }
+
+    .orb.two {
+      width: 350px;
+      height: 350px;
+      background: #20d9c7;
+      right: -100px;
+      top: 25%;
+    }
+
+    .orb.three {
+      width: 300px;
+      height: 300px;
+      background: #4ca8ff;
+      left: 25%;
+      bottom: -160px;
+    }
+
+
+    /* =========================================================
+       NAVBAR
+    ========================================================= */
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7,11,22,.7);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    body.light header {
+      background: rgba(255,255,255,.75);
+    }
+
+    nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      transition: .25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 100px;
+      color: var(--secondary);
+      font-size: .8rem;
+      margin-bottom: 25px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #20d9c7;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #20d9c7;
+    }
+
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(3rem, 7vw, 6.2rem);
+      line-height: 1;
+      letter-spacing: -4px;
+      max-width: 850px;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      color: transparent;
+      background-clip: text;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      max-width: 680px;
+      font-size: 1.05rem;
+      margin: 28px 0;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 19px;
+      border-radius: 11px;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      font-size: .9rem;
+      transition: .25s;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(124,92,255,.25);
+    }
+
+    .btn-outline {
+      background: var(--card);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--secondary);
+      color: var(--secondary);
+      transform: translateY(-3px);
+    }
+
+
+    /* =========================================================
+       PROFILE IMAGE
+    ========================================================= */
+
+    .profile-wrapper {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .profile-card {
+      position: relative;
+      width: min(360px, 85vw);
+      height: 430px;
+      padding: 10px;
+      border-radius: 35px;
+      background: var(--gradient);
+      transform: rotate(3deg);
+      box-shadow: 0 35px 100px rgba(0,0,0,.35);
+    }
+
+    .profile-inner {
+      width: 100%;
+      height: 100%;
+      background: #0b1120;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .profile-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /*
+      IMPORTANT:
+      Put your real image in the same folder and name it:
+
+      profile.jpg
+
+      OR change the src below.
+    */
+
+    .profile-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #9ca9bf;
+      background:
+        radial-gradient(circle at 50% 30%, #182544, #080d19 65%);
+      text-align: center;
+      padding: 30px;
+    }
+
+    .profile-placeholder i {
+      font-size: 70px;
+      margin-bottom: 20px;
+      color: #7c5cff;
+    }
+
+    .profile-placeholder strong {
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    .floating-card {
+      position: absolute;
+      background: rgba(12,19,34,.9);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      border-radius: 15px;
+      padding: 13px 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,.3);
+    }
+
+    .floating-card.one {
+      left: -35px;
+      bottom: 55px;
+    }
+
+    .floating-card.two {
+      right: -25px;
+      top: 60px;
+    }
+
+    .floating-card small {
+      color: #9ca9bf;
+      display: block;
+      font-size: .7rem;
+    }
+
+    .floating-card strong {
+      color: white;
+      font-size: .85rem;
+    }
+
+
+    /* =========================================================
+       SECTIONS
+    ========================================================= */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .75rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      margin-bottom: 14px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 38px;
+    }
+
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .glass-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .interest-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .interest {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px;
+      border-radius: 13px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--border);
+    }
+
+    .interest-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(124,92,255,.12);
+      color: #9d8aff;
+    }
+
+
+    /* =========================================================
+       SKILLS
+    ========================================================= */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .skill-card {
+      padding: 23px;
+      border-radius: 17px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      transition: .25s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(32,217,199,.4);
+    }
+
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      background: rgba(124,92,255,.12);
+      color: #9c8cff;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 7px;
+      font-size: 1rem;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+
+    /* =========================================================
+       EDUCATION
+    ========================================================= */
+
+    .timeline {
+      position: relative;
+      max-width: 850px;
+      margin-top: 35px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 42px;
+      margin-bottom: 35px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 4px;
+      top: 5px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--secondary);
+      box-shadow: 0 0 18px rgba(32,217,199,.7);
+    }
+
+    .timeline-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      padding: 24px;
+    }
+
+    .timeline-card h3 {
+      margin-bottom: 5px;
+    }
+
+    .timeline-card p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .education-year {
+      color: var(--secondary) !important;
+      margin-top: 8px;
+      font-weight: 700;
+    }
+
+
+    /* =========================================================
+       PROJECTS
+    ========================================================= */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: .3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(124,92,255,.45);
+      box-shadow: 0 25px 70px rgba(0,0,0,.2);
+    }
+
+    .project-top {
+      height: 160px;
+      padding: 25px;
+      display: flex;
+      align-items: flex-end;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(32,217,199,.25), transparent 35%),
+        radial-gradient(circle at 10% 80%, rgba(124,92,255,.28), transparent 40%),
+        #0d1525;
+    }
+
+    .project-number {
+      font-size: 3rem;
+      font-family: "Space Grotesk";
+      font-weight: 700;
+      color: rgba(255,255,255,.14);
+    }
+
+    .project-body {
+      padding: 24px;
+    }
+
+    .project-body h3 {
+      margin-bottom: 9px;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      font-size: .87rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 17px 0;
+    }
+
+    .tag {
+      font-size: .7rem;
+      padding: 5px 8px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 7px;
+    }
+
+
+    /* =========================================================
+       CERTIFICATES
+    ========================================================= */
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 16px;
+    }
+
+    .certificate {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      transition: .3s;
+    }
+
+    .certificate:hover {
+      transform: translateY(-6px);
+    }
+
+    .certificate-image {
+      height: 145px;
+      border-radius: 12px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(124,92,255,.2),
+          rgba(32,217,199,.12)
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .certificate-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .certificate-image i {
+      font-size: 40px;
+      color: #8e7cff;
+    }
+
+    .certificate h3 {
+      font-size: .9rem;
+      margin-bottom: 4px;
+    }
+
+    .certificate p {
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+
+    /* =========================================================
+       RESUME
+    ========================================================= */
+
+    .resume-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 40px;
+      border-radius: 25px;
+      background:
+        radial-gradient(
+          circle at 100% 0,
+          rgba(124,92,255,.2),
+          transparent 40%
+        ),
+        var(--card);
+      border: 1px solid var(--border);
+    }
+
+    .resume-box p {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 25px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 13px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .contact-item i {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(124,92,255,.12);
+      color: #9d8aff;
+    }
+
+    .contact-item small {
+      display: block;
+      color: var(--muted);
+      font-size: .7rem;
+    }
+
+    .contact-item span {
+      font-size: .85rem;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+
+    /* =========================================================
+       REVEAL ANIMATION
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media(max-width: 950px) {
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-wrapper {
+        order: -1;
+      }
+
+      .profile-card {
+        height: 380px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .cert-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    @media(max-width: 720px) {
+
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        background: var(--bg2);
+        border-bottom: 1px solid var(--border);
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .profile-card {
+        width: 290px;
+        height: 350px;
+      }
+
+      .floating-card.one {
+        left: 0;
+      }
+
+      .floating-card.two {
+        right: 0;
+      }
+
+      .skills-grid,
+      .projects-grid,
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .resume-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+    }
+
+
+    @media(prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<!-- =========================================================
+     BACKGROUND
+========================================================= -->
+
+<div class="background">
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+</div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header>
+
+  <div class="container">
+
+    <nav>
+
+      <a href="#home" class="logo">
+        Likhith<span>.</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certificates</a>
+        <a href="#contact">Contact</a>
+
+      </div>
+
+      <div class="nav-actions">
+
+        <button
+          class="icon-btn"
+          id="themeToggle"
+          aria-label="Toggle theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+
+        <button
+          class="menu-btn"
+          id="menuBtn"
+          aria-label="Open navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     HOME
+========================================================= -->
+
+<main id="home">
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-grid">
+
+      <div class="hero-content reveal">
+
+        <div class="availability">
+          <span class="status-dot"></span>
+          Open to Software / Internship Opportunities
+        </div>
+
+        <h1>
+          Hi, I'm
+          <span class="gradient-text">
+            Likhith
+          </span>
+        </h1>
+
+        <h2 style="
+          margin-top:18px;
+          font-size:1.35rem;
+          color:var(--muted);
+          font-weight:600;
+        ">
+          Computer Science Student · Full-Stack Developer · AI Enthusiast
+        </h2>
+
+        <p class="hero-description">
+          Computer Science student with hands-on experience in
+          full-stack web development and AI-powered applications.
+          I enjoy building practical products using modern frontend,
+          backend, database and cloud technologies.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#projects" class="btn btn-primary">
+            <i class="fa-solid fa-code"></i>
+            View Projects
+          </a>
+
+          <!-- Put resume.pdf in same folder -->
+          <a
+            href="resume.pdf"
+            download
+            class="btn btn-outline">
+
+            <i class="fa-solid fa-download"></i>
+            Download Resume
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROFILE -->
+
+      <div class="profile-wrapper reveal">
+
+        <div class="profile-card">
+
+          <div class="profile-inner">
+
+            <!--
+              REPLACE profile.jpg WITH YOUR REAL PHOTO
+
+              Example:
+              <img src="profile.jpg" alt="Likhith Tirumalasetti">
+            -->
+
+            <div class="profile-placeholder">
+
+              <i class="fa-solid fa-user"></i>
+
+              <strong>
+                Add Your Professional Photo
+              </strong>
+
+              <small style="margin-top:8px;">
+                Rename your image to
+                <b>profile.jpg</b>
+              </small>
+
+            </div>
+
+          </div>
+
+          <div class="floating-card one">
+
+            <small>Education</small>
+
+            <strong>
+              B.Tech CSE
+            </strong>
+
+          </div>
+
+          <div class="floating-card two">
+
+            <small>Academic</small>
+
+            <strong>
+              7.4 CGPA
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section id="about">
+
+  <div class="container">
+
+    <div class="section-label">
+      About Me
+    </div>
+
+    <h2 class="section-title">
+      Developer focused on building useful products.
+    </h2>
+
+    <p class="section-description">
+      A professional introduction based on my current academic
+      background and project experience.
+    </p>
+
+
+    <div class="about-grid">
+
+      <div class="glass-card about-text reveal">
+
+        <p>
+          I am a Computer Science and Engineering student with
+          hands-on experience in full-stack web development and
+          AI-powered applications.
+        </p>
+
+        <p>
+          I have worked with Java, Spring Boot, React, FastAPI,
+          JavaScript, databases and cloud/deployment tools while
+          building practical applications.
+        </p>
+
+        <p>
+          My interests are focused on software development,
+          full-stack engineering and AI-powered applications.
+        </p>
+
+        <p>
+          I value problem solving, teamwork and adaptability while
+          continuously improving my technical skills.
+        </p>
+
+      </div>
+
+
+      <div class="glass-card reveal">
+
+        <h3 style="margin-bottom:20px;">
+          What I Focus On
+        </h3>
+
+        <div class="interest-list">
+
+          <div class="interest">
+
+            <div class="interest-icon">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+
+            <div>
+              <strong>Full-Stack Development</strong>
+
+              <small style="display:block;color:var(--muted)">
+                Frontend + Backend applications
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="interest">
+
+            <div class="interest-icon">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+
+            <div>
+              <strong>AI Applications</strong>
+
+              <small style="display:block;color:var(--muted)">
+                Practical AI-powered products
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="interest">
+
+            <div class="interest-icon">
+              <i class="fa-solid fa-database"></i>
+            </div>
+
+            <div>
+              <strong>Backend & Databases</strong>
+
+              <small style="display:block;color:var(--muted)">
+                APIs and database-driven systems
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="interest">
+
+            <div class="interest-icon">
+              <i class="fa-solid fa-cloud"></i>
+            </div>
+
+            <div>
+              <strong>Cloud & Deployment</strong>
+
+              <small style="display:block;color:var(--muted)">
+                Docker, AWS and CI/CD workflows
+              </small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section id="skills">
+
+  <div class="container">
+
+    <div class="section-label">
+      Technical Skills
+    </div>
+
+    <h2 class="section-title">
+      Technologies I work with.
+    </h2>
+
+    <p class="section-description">
+      Technologies listed here are taken from my uploaded resume.
+    </p>
+
+
+    <div class="skills-grid">
+
+
+      <div class="skill-card reveal">
+
+        <div class="skill-icon">
+          <i class="fa-solid fa-code"></i>
+        </div>
+
+        <h3>Programming Languages</h3>
+
+        <p>
+          C++, C, Java, JavaScript, Python
+        </p>
+
+      </div>
+
+
+      <div class="skill-card reveal">
+
+        <div class="skill-icon">
+          <i class="fa-solid fa-globe"></i>
+        </div>
+
+        <h3>Web Development</h3>
+
+        <p>
+          React.js, Node.js, Express.js, HTML, CSS
+        </p>
+
+      </div>
+
+
+      <div class="skill-card reveal">
+
+        <div class="skill-icon">
+          <i class="fa-solid fa-server"></i>
+        </div>
+
+        <h3>Backend & APIs</h3>
+
+        <p>
+          Spring Boot, FastAPI, REST APIs
+        </p>
+
+      </div>
+
+
+      <div class="skill-card reveal">
+
+        <div class="skill-icon">
+          <i class="fa-solid fa-database"></i>
+        </div>
+
+        <h3>Databases</h3>
+
+        <p>
+          MySQL, MongoDB, PostgreSQL
+        </p>
+
+      </div>
+
+
+      <div class="skill-card reveal">
+
+        <div class="skill-icon">
+          <i class="fa-solid fa-toolbox"></i>
+        </div>
+
+        <h3>Tools & Platforms</h3>
+
+        <p>
+          Git, GitHub, Postman, VS Code, Docker, AWS
+        </p>
+
+      </div>
+
+
+      <div class="skill-card reveal">
+
+        <div class="skill-icon">
+          <i class="fa-solid fa-people-group"></i>
+        </div>
+
+        <h3>Professional Strengths</h3>
+
+        <p>
+          Problem Solving, Teamwork, Adaptability
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EDUCATION
+========================================================= -->
+
+<section id="education">
+
+  <div class="container">
+
+    <div class="section-label">
+      Education
+    </div>
+
+    <h2 class="section-title">
+      Academic journey.
+    </h2>
+
+
+    <div class="timeline">
+
+
+      <div class="timeline-item reveal">
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-card">
+
+          <h3>
+            Bachelor of Technology —
+            Computer Science & Engineering
+          </h3>
+
+          <p>
+            Ideal Institute of Technology
+          </p>
+
+          <p class="education-year">
+            7.4 CGPA · Present
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="timeline-item reveal">
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-card">
+
+          <h3>
+            Intermediate
+          </h3>
+
+          <p>
+            Sri Chaitanya Junior College
+          </p>
+
+          <p class="education-year">
+            92% · 2023
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="timeline-item reveal">
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-card">
+
+          <h3>
+            Matriculation
+          </h3>
+
+          <p>
+            Sri Balaji Vidyalayam
+          </p>
+
+          <p class="education-year">
+            96% · 2021
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EXPERIENCE
+========================================================= -->
+
+<section id="experience">
+
+  <div class="container">
+
+    <div class="section-label">
+      Experience
+    </div>
+
+    <h2 class="section-title">
+      Experience & Programs.
+    </h2>
+
+    <p class="section-description">
+      No employment or internship experience is listed in the
+      uploaded resume. I have therefore not added fabricated
+      experience.
+    </p>
+
+
+    <div class="glass-card reveal">
+
+      <div style="
+        display:flex;
+        gap:18px;
+        align-items:center;
+      ">
+
+        <div style="
+          width:50px;
+          height:50px;
+          border-radius:12px;
+          display:grid;
+          place-items:center;
+          background:rgba(32,217,199,.1);
+          color:#20d9c7;
+        ">
+
+          <i class="fa-solid fa-briefcase"></i>
+
+        </div>
+
+        <div>
+
+          <h3>
+            Fresher / Student Developer
+          </h3>
+
+          <p style="color:var(--muted)">
+            Currently building technical experience through
+            academic and personal software projects.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section id="projects">
+
+  <div class="container">
+
+    <div class="section-label">
+      Featured Projects
+    </div>
+
+    <h2 class="section-title">
+      Things I've built.
+    </h2>
+
+    <p class="section-description">
+      Real projects from my uploaded resume.
+    </p>
+
+
+    <div class="projects-grid">
+
+
+      <!-- PROJECT 01 -->
+
+      <article class="project-card reveal">
+
+        <div class="project-top">
+
+          <span class="project-number">
+            01
+          </span>
+
+        </div>
+
+        <div class="project-body">
+
+          <h3>
+            Budget Planner
+          </h3>
+
+          <p>
+            Full-stack budget management application for tracking
+            income, expenses, savings and overall financial activity.
+          </p>
+
+          <div class="tags">
+
+            <span class="tag">Java</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">React.js</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">AWS</span>
+
+          </div>
+
+          <p>
+            Built REST APIs, responsive dashboard, MySQL data
+            management, Docker containerization and GitHub Actions
+            CI/CD workflows.
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PROJECT 02 -->
+
+      <article class="project-card reveal">
+
+        <div class="project-top">
+
+          <span class="project-number">
+            02
+          </span>
+
+        </div>
+
+        <div class="project-body">
+
+          <h3>
+            Tripora AI
+          </h3>
+
+          <p>
+            AI-powered travel chatbot that creates personalized
+            trip plans based on destination, duration, budget,
+            group size and travel preferences.
+          </p>
+
+          <div class="tags">
+
+            <span class="tag">React</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Gemini API</span>
+
+          </div>
+
+          <p>
+            Includes responsive chat interface, recent
+            conversations, editable prompts and context-aware
+            follow-up questions.
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PROJECT 03 -->
+
+      <article class="project-card reveal">
+
+        <div class="project-top">
+
+          <span class="project-number">
+            03
+          </span>
+
+        </div>
+
+        <div class="project-body">
+
+          <h3>
+            Polyvox PDF2Audio
+          </h3>
+
+          <p>
+            Application that converts PDF documents into
+            multilingual audio and supports both text-based
+            and scanned documents.
+          </p>
+
+          <div class="tags">
+
+            <span class="tag">FastAPI</span>
+            <span class="tag">React</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+
+          </div>
+
+          <p>
+            Uses OCR and AI-based text processing for scanned
+            documents and summarizes extracted text before
+            audio conversion.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CERTIFICATIONS
+========================================================= -->
+
+<section id="certifications">
+
+  <div class="container">
+
+    <div class="section-label">
+      Certifications
+    </div>
+
+    <h2 class="section-title">
+      Learning & certifications.
+    </h2>
+
+    <p class="section-description">
+      Certification names and years are taken directly from
+      the uploaded resume.
+    </p>
+
+
+    <div class="cert-grid">
+
+
+      <!-- CERTIFICATE 01 -->
+
+      <div class="certificate reveal">
+
+        <div class="certificate-image">
+
+          <!--
+            Replace with your real certificate image:
+
+            certificates/deloitte.jpg
+          -->
+
+          <i class="fa-solid fa-award"></i>
+
+        </div>
+
+        <h3>
+          Deloitte Technology Job Simulation
+        </h3>
+
+        <p>
+          Deloitte · 2025
+        </p>
+
+      </div>
+
+
+      <!-- CERTIFICATE 02 -->
+
+      <div class="certificate reveal">
+
+        <div class="certificate-image">
+
+          <i class="fa-solid fa-certificate"></i>
+
+        </div>
+
+        <h3>
+          Red Hat Certification
+        </h3>
+
+        <p>
+          Red Hat · 2025
+        </p>
+
+      </div>
+
+
+      <!-- CERTIFICATE 03 -->
+
+      <div class="certificate reveal">
+
+        <div class="certificate-image">
+
+          <i class="fa-brands fa-aws"></i>
+
+        </div>
+
+        <h3>
+          AWS Certification
+        </h3>
+
+        <p>
+          AWS · 2025
+        </p>
+
+      </div>
+
+
+      <!-- CERTIFICATE 04 -->
+
+      <div class="certificate reveal">
+
+        <div class="certificate-image">
+
+          <i class="fa-solid fa-chart-line"></i>
+
+        </div>
+
+        <h3>
+          Celonis Certification
+        </h3>
+
+        <p>
+          Celonis · 2023
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ACHIEVEMENTS
+========================================================= -->
+
+<section id="achievements">
+
+  <div class="container">
+
+    <div class="section-label">
+      Achievements
+    </div>
+
+    <h2 class="section-title">
+      What I can confidently showcase.
+    </h2>
+
+    <div class="glass-card reveal">
+
+      <p style="color:var(--muted);max-width:750px">
+
+        The uploaded resume does not list separate competition
+        wins, awards, rankings or other specific achievements.
+        Rather than inventing achievements, this portfolio
+        highlights the documented projects, certifications and
+        academic performance.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     RESUME
+========================================================= -->
+
+<section id="resume">
+
+  <div class="container">
+
+    <div class="resume-box reveal">
+
+      <div>
+
+        <div class="section-label">
+          Resume
+        </div>
+
+        <h2 class="section-title">
+          Want the complete profile?
+        </h2>
+
+        <p>
+          Download my latest resume for a concise overview of
+          my education, technical skills, projects and
+          certifications.
+        </p>
+
+      </div>
+
+      <!-- Put your resume.pdf beside index.html -->
+
+      <a
+        href="resume.pdf"
+        download
+        class="btn btn-primary">
+
+        <i class="fa-solid fa-file-arrow-down"></i>
+
+        Download Resume
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section id="contact">
+
+  <div class="container">
+
+    <div class="section-label">
+      Contact
+    </div>
+
+    <h2 class="section-title">
+      Let's connect.
+    </h2>
+
+    <p class="section-description">
+      Interested in software development, full-stack
+      opportunities or internship discussions? Feel free
+      to reach out.
+    </p>
+
+
+    <div class="contact-grid">
+
+
+      <div class="glass-card reveal">
+
+        <h3>
+          Contact Information
+        </h3>
+
+        <div class="contact-list">
+
+
+          <a
+            class="contact-item"
+            href="mailto:tirumalasettilikhith@gmail.com">
+
+            <i class="fa-solid fa-envelope"></i>
+
+            <div>
+
+              <small>Email</small>
+
+              <span>
+                tirumalasettilikhith@gmail.com
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <a
+            class="contact-item"
+            href="tel:+916309660360">
+
+            <i class="fa-solid fa-phone"></i>
+
+            <div>
+
+              <small>Phone</small>
+
+              <span>
+                +91 63096 60360
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <!--
+            REAL LINKEDIN URL WAS NOT PRESENT IN THE RESUME.
+
+            Add your actual URL here when available.
+
+            Example:
+
+            <a href="YOUR_REAL_LINKEDIN_URL">
+          -->
+
+          <div class="contact-item">
+
+            <i class="fa-brands fa-linkedin"></i>
+
+            <div>
+
+              <small>LinkedIn</small>
+
+              <span>
+                Add your real LinkedIn URL
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!--
+            REAL GITHUB URL WAS NOT PRESENT IN THE RESUME.
+          -->
+
+          <div class="contact-item">
+
+            <i class="fa-brands fa-github"></i>
+
+            <div>
+
+              <small>GitHub</small>
+
+              <span>
+                Add your real GitHub URL
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <div class="glass-card reveal">
+
+        <h3>
+          Open to Opportunities
+        </h3>
+
+        <p style="
+          color:var(--muted);
+          margin-top:12px;
+          margin-bottom:25px;
+        ">
+
+          I am interested in software development,
+          full-stack development and internship opportunities
+          where I can contribute, learn and grow as a developer.
+
+        </p>
+
+
+        <a
+          href="mailto:tirumalasettilikhith@gmail.com"
+          class="btn btn-primary">
+
+          <i class="fa-solid fa-paper-plane"></i>
+
+          Send Me an Email
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+  <div class="container footer-content">
+
+    <span>
+      © 2026 Likhith Tirumalasetti
+    </span>
+
+    <span>
+      CSE Student · Full-Stack Developer · AI Enthusiast
+    </span>
+
+  </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+  /* =========================================================
+     MOBILE MENU
+  ========================================================= */
+
+  const menuBtn = document.getElementById("menuBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("open");
+
+  });
+
+
+  /* Close mobile menu after clicking */
+
+  document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+      navLinks.classList.remove("open");
+
+    });
+
+  });
+
+
+
+  /* =========================================================
+     DARK / LIGHT MODE
+  ========================================================= */
+
+  const themeToggle =
+    document.getElementById("themeToggle");
+
+  const savedTheme =
+    localStorage.getItem("portfolio-theme");
+
+  if(savedTheme === "light") {
+
+    document.body.classList.add("light");
+
+    themeToggle.innerHTML =
+      '<i class="fa-solid fa-moon"></i>';
+
+  }
+
+
+  themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("light");
+
+    const isLight =
+      document.body.classList.contains("light");
+
+    localStorage.setItem(
+      "portfolio-theme",
+      isLight ? "light" : "dark"
+    );
+
+    themeToggle.innerHTML = isLight
+      ? '<i class="fa-solid fa-moon"></i>'
+      : '<i class="fa-solid fa-sun"></i>';
+
+  });
+
+
+
+  /* =========================================================
+     SCROLL REVEAL
+  ========================================================= */
+
+  const observer =
+    new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(entry => {
+
+          if(entry.isIntersecting) {
+
+            entry.target.classList.add("active");
+
+          }
+
+        });
+
+      },
+
+      {
+        threshold: .12
+      }
+
+    );
+
+
+  document
+    .querySelectorAll(".reveal")
+    .forEach(element => {
+
+      observer.observe(element);
+
+    });
+
+
+
+  /* =========================================================
+     ACTIVE NAVIGATION
+  ========================================================= */
+
+  const sections =
+    document.querySelectorAll("main section");
+
+  const navItems =
+    document.querySelectorAll(".nav-links a");
+
+
+  window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+      const sectionTop =
+        section.offsetTop - 150;
+
+      if(window.scrollY >= sectionTop) {
+
+        current = section.getAttribute("id");
+
+      }
+
+    });
+
+
+    navItems.forEach(item => {
+
+      item.style.color = "";
+
+      if(
+        item.getAttribute("href") ===
+        "#" + current
+      ) {
+
+        item.style.color =
+          "var(--text)";
+
+      }
+
+    });
+
+  });
+
+</script>
+
+</body>
+</html>
+```
